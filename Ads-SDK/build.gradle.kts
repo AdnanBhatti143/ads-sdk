@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("maven-publish")
 }
 
 android {
@@ -29,6 +30,18 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    afterEvaluate {
+        publishing {
+            publications {
+                create<MavenPublication>("maven") {
+                    from (components["release"])
+                    groupId = "com.github.adnanbhatti143"
+                    artifactId = "ads-sdk-android-app"
+                    version = "1.0.0"
+                }
+            }
+        }
     }
 }
 
