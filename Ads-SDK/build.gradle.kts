@@ -37,10 +37,17 @@ android {
                 create<MavenPublication>("maven") {
                     from (components["release"])
                     groupId = "com.github.adnanbhatti143"
-                    artifactId = "ads-sdk-android-app"
+                    artifactId = "ads-library"
                     version = "1.0.0"
                 }
             }
+        }
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
         }
     }
 }
