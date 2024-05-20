@@ -31,23 +31,16 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    afterEvaluate {
+    project.afterEvaluate {
         publishing {
             publications {
                 create<MavenPublication>("maven") {
                     from (components["release"])
                     groupId = "com.github.adnanbhatti143"
-                    artifactId = "ads-library"
+                    artifactId = "ads-sdk"
                     version = "1.0.0"
                 }
             }
-        }
-    }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
         }
     }
 }
