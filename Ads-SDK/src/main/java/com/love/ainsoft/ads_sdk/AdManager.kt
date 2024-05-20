@@ -1,0 +1,1 @@
+package com.love.ainsoft.ads_sdkclass AdManager {}
