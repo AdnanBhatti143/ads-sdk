@@ -52,7 +52,7 @@ project.afterEvaluate {
                 from(components["debug"])
                 groupId = "com.github.AdnanBhatti143"
                 artifactId = "ads-sdk"
-                version = "1.0.0"
+                version = "1.0.2"
             }
         }
     }
