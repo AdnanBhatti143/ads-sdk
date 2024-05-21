@@ -25,25 +25,50 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
-    project.afterEvaluate {
-        publishing {
-            publications {
-                create<MavenPublication>("maven") {
-                    from (components["release"])
-                    groupId = "com.github.adnanbhatti143"
-                    artifactId = "ads-sdk"
-                    version = "1.0.0"
-                }
+//    project.afterEvaluate {
+//        publishing {
+//            publications {
+//                create<MavenPublication>("maven") {
+//                    from (components["release"])
+//                    groupId = "com.github.adnanbhatti143"
+//                    artifactId = "ads-sdk"
+//                    version = "1.0.0"
+//                }
+//            }
+//        }
+//    }
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("mavenAndroid") {
+                from(components["debug"])
+                groupId = "com.github.AdnanBhatti143"
+                artifactId = "ads-sdk"
+                version = "1.0.0"
             }
         }
     }
 }
+
+//publishing {
+//    publications {
+//        mavenAndroid(MavenPublication) {
+//            from components . release
+//
+//                    groupId = 'com.example'
+//            artifactId = 'your-android-library'
+//            version = '1.0.0'
+//        }
+//    }
+//}
 
 dependencies {
 
